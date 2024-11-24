@@ -290,22 +290,11 @@ quranic_words = [
     {"Word (Arabic)": "أم", "Transliteration": "Um", "Meaning": "Mother", "Example": "أُمُّهُۥٓ (His mother)"},
 ]
 
-
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
-# Set the number of words per page
-words_per_page = 15
-
-# Initialize session state variables if not already set
-if 'current_page' not in st.session_state:
-    st.session_state.current_page = 0
-if 'search_query' not in st.session_state:
-    st.session_state.search_query = ""
-
 # Search bar to filter words
-search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
-st.session_state.search_query = search_query
+search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", "")
 
 # Filter words based on the search query
 if search_query:
@@ -316,34 +305,14 @@ if search_query:
 else:
     df_filtered = df
 
-# Calculate the total number of pages for the filtered data
-total_pages = len(df_filtered) // words_per_page + (1 if len(df_filtered) % words_per_page > 0 else 0)
-
-# Calculate the starting and ending index for the current page
-start_index = st.session_state.current_page * words_per_page
-end_index = start_index + words_per_page
-
-# Get the words to display for the current page
-page_words = df_filtered.iloc[start_index:end_index]
-
 # Display the words for the current page with continuous numbering
-for idx, (index, row) in enumerate(page_words.iterrows(), st.session_state.current_page * words_per_page + 1):
+for idx, (index, row) in enumerate(df_filtered.iterrows(), 1):
     # Arabic word in green color with a number in front
     st.markdown(f"<h2 style='color: #2C6E49;'>{idx}. {row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
-
-# Create a container for page number buttons and make them fit in a single line
-page_buttons = st.container()
-with page_buttons:
-    # Create a row of clickable page number buttons
-    cols = st.columns(total_pages)  # Create as many columns as the number of pages
-    for page_num, col in enumerate(cols, 1):
-        if col.button(f"{page_num}", key=f"page_{page_num}", help=f"Go to page {page_num}"):
-            st.session_state.current_page = page_num - 1  # Adjust for 0-based index
-            break  # Don't need to rerun, just update the current page
 
 # Display 'Home' button only after a search query is entered
 if search_query:
@@ -420,24 +389,5 @@ st.markdown("""
     .stTextInput div {
         padding: 10px;
     }
-
-    /* Styling for page number buttons */
-    .stButton {
-        display: inline-block;
-        margin: 5px;
-        font-size: 12px;
-        padding: 5px 10px;
-        cursor: pointer;
-        text-align: center;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px;
-        width: auto;
-    }
-
-    .stButton:hover {
-        background-color: #45a049;
-    }
     </style>
 """, unsafe_allow_html=True)
-
