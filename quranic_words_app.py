@@ -325,7 +325,8 @@ st.session_state.search_query = search_query
 
 # Filter words based on the search query
 if search_query:
-    df_filtered = df[df['Arabic'].str.contains(search_query, case=False) | df['Meaning'].str.contains(search_query, case=False)]
+    # Make sure to use the correct column names (e.g., 'Word (Arabic)' and 'Meaning')
+    df_filtered = df[df['Word (Arabic)'].str.contains(search_query, case=False) | df['Meaning'].str.contains(search_query, case=False)]
 else:
     df_filtered = df
 
