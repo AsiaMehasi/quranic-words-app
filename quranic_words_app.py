@@ -339,10 +339,10 @@ for idx, (index, row) in enumerate(page_words.iterrows(), st.session_state.curre
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
 
-# Generate clickable page numbers
-col1, col2, col3 = st.columns([1, 5, 1])
+# Generate clickable page numbers horizontally
+col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])  # You can increase the number of columns based on total pages
 
-# Show the clickable page numbers
+# Show the clickable page numbers horizontally
 with col2:
     page_buttons = []
     for page_num in range(1, total_pages + 1):
@@ -424,6 +424,22 @@ st.markdown("""
 
     .stTextInput div {
         padding: 10px;
+    }
+
+    /* Styling for horizontal page numbers */
+    .stButton {
+        display: inline-block;
+        margin: 5px;
+        font-size: 16px;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+    }
+    .stButton:hover {
+        background-color: #45a049;
     }
     </style>
 """, unsafe_allow_html=True)
