@@ -291,6 +291,7 @@ quranic_words = [
 ]
 
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -299,7 +300,7 @@ df['Word (Arabic)'] = df['Word (Arabic)'].fillna("")
 df['Meaning'] = df['Meaning'].fillna("")
 
 # Set the number of words per page
-words_per_page = 2
+words_per_page = 15
 
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
@@ -330,19 +331,11 @@ end_index = start_index + words_per_page
 # Get the words to display for the current page
 page_words = df_filtered.iloc[start_index:end_index]
 
-# Function to navigate pages and force scroll to top
-def change_page(direction):
-    if direction == "next" and st.session_state.current_page < total_pages - 1:
-        st.session_state.current_page += 1
-    elif direction == "prev" and st.session_state.current_page > 0:
-        st.session_state.current_page -= 1
-    # Trigger a scroll to top by refreshing the page content
-    st.experimental_rerun()
-
 # Display the words for the current page
 st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List</h1>", unsafe_allow_html=True)
 
 for index, row in page_words.iterrows():
+    # Arabic word in green color
     st.markdown(f"<h2 style='color: #2C6E49;'>{row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
@@ -350,11 +343,19 @@ for index, row in page_words.iterrows():
     st.write("---")
 
 # Navigation buttons with callbacks
+def prev_page():
+    if st.session_state.current_page > 0:
+        st.session_state.current_page -= 1
+
+def next_page():
+    if st.session_state.current_page < total_pages - 1:
+        st.session_state.current_page += 1
+
 col1, col2, col3 = st.columns([1, 5, 1])
 
 # Show 'Previous' button only if not on the first page
 with col1:
-    st.button("Previous", on_click=change_page, args=("prev",), key="prev_btn", help="Go to previous page")
+    st.button("Previous", on_click=prev_page, key="prev_btn", help="Go to previous page")
 
 # Show the page number
 with col2:
@@ -362,12 +363,12 @@ with col2:
 
 # Show 'Next' button only if more pages exist
 with col3:
-    st.button("Next", on_click=change_page, args=("next",), key="next_btn", help="Go to next page")
+    st.button("Next", on_click=next_page, key="next_btn", help="Go to next page")
 
 # Display 'Home' button only after a search query is entered
 if search_query:
     st.markdown(f"""
-        <div style="position: absolute; top: 20px; right: 20px;">
+        <div style="position: absolute; top: 70px; right: 20px;">
             <form action="/" method="get">
                 <button type="submit" style="
                     background-color: #4CAF50;
@@ -383,3 +384,61 @@ if search_query:
             </form>
         </div>
     """, unsafe_allow_html=True)
+
+# Custom CSS for improved styling
+st.markdown("""
+    <style>
+    body {
+        background-color: #F4F6F2;
+        font-family: 'Helvetica', sans-serif;
+    }
+
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .stButton>button:hover {
+        background-color: #45a049;
+    }
+
+    .stTextInput>div>input {
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        width: 50%; /* Resize to half its size */
+        line-height: 1.5em; /* Center text vertically */
+        margin: 0 auto; /* Center horizontally */
+    }
+
+    .stMarkdown h1 {
+        color: #2C6E49;
+        font-family: 'Georgia', serif;
+    }
+
+    .stMarkdown h3 {
+        color: #2C6E49;
+    }
+
+    .stMarkdown ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .stMarkdown li {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .stTextInput div {
+        padding: 10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
