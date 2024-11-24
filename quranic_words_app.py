@@ -295,7 +295,7 @@ quranic_words = [
 df = pd.DataFrame(quranic_words)
 
 # Set the number of words per page
-words_per_page = 15
+words_per_page = 50
 
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
@@ -360,7 +360,7 @@ with col3:
         # Reset session state variables to go back to the first page
         st.session_state.search_query = ""  # Clear search query
         st.session_state.current_page = 0  # Reset to the first page
-        st.experimental_rerun()  # Trigger a rerun to refresh the page
+        # No need for rerun here, just rely on session state
 
 # Custom CSS for improved styling
 st.markdown("""
