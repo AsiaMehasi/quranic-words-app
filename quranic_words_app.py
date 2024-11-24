@@ -291,9 +291,6 @@ quranic_words = [
 ]
 
 
-
-
-
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -309,6 +306,21 @@ if 'current_page' not in st.session_state:
     st.session_state.current_page = 0
 if 'search_query' not in st.session_state:
     st.session_state.search_query = ""
+
+# JavaScript for scrolling to the top
+scroll_to_top_js = """
+<script>
+    document.getElementById('scroll-to-top-btn').click();
+</script>
+"""
+
+# Function to reset scroll position
+st.components.v1.html(
+    f"""
+    <button id="scroll-to-top-btn" style="display: none;" onclick="window.scrollTo(0, 0);"></button>
+    """,
+    height=0,
+)
 
 # Search bar to filter words
 search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
@@ -337,7 +349,6 @@ page_words = df_filtered.iloc[start_index:end_index]
 st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List</h1>", unsafe_allow_html=True)
 
 for index, row in page_words.iterrows():
-    # Arabic word in green color
     st.markdown(f"<h2 style='color: #2C6E49;'>{row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
@@ -348,10 +359,12 @@ for index, row in page_words.iterrows():
 def prev_page():
     if st.session_state.current_page > 0:
         st.session_state.current_page -= 1
+        st.components.v1.html(scroll_to_top_js, height=0)
 
 def next_page():
     if st.session_state.current_page < total_pages - 1:
         st.session_state.current_page += 1
+        st.components.v1.html(scroll_to_top_js, height=0)
 
 col1, col2, col3 = st.columns([1, 5, 1])
 
@@ -415,9 +428,9 @@ st.markdown("""
         padding: 10px;
         border-radius: 12px;
         border: 1px solid #ddd;
-        width: 50%; /* Resize to half its size */
-        line-height: 1.5em; /* Center text vertically */
-        margin: 0 auto; /* Center horizontally */
+        width: 50%;
+        line-height: 1.5em;
+        margin: 0 auto;
     }
 
     .stMarkdown h1 {
