@@ -29,14 +29,9 @@ quranic_words = [
     {"Word (Arabic)": "سلام", "Transliteration": "Salaam", "Meaning": "Peace", "Example": "سَلَٰمٌ هِيَ حَتَّىٰ مَطۡلَعِ ٱلۡفَجۡرِ (Peace it is until the emergence of dawn)"},
     {"Word (Arabic)": "ملك", "Transliteration": "Malik", "Meaning": "King, Owner", "Example": "مَٰلِكِ يَوۡمِ ٱلدِّينِ (Master of the Day of Judgment)"},
     {"Word (Arabic)": "علم", "Transliteration": "'Ilm", "Meaning": "Knowledge", "Example": "وَعَلَّمَ ٱدَمَ ٱلۡأَسۡمَآءَ كُلَّهَا (And He taught Adam the names - all of them)"},
-    {"Word (Arabic)": "نور", "Transliteration": "Noor", "Meaning": "Light", "Example": "يَهۡدِي ٱللَّهُ لِنُورِهِۦ مَن يَشَآءُ (Allah guides to His light whom He wills)"},
     {"Word (Arabic)": "صلاة", "Transliteration": "Salah", "Meaning": "Prayer", "Example": "إِنَّ ٱلصَّلَوٰةَ كَانَتۡ عَلَى ٱلۡمُؤۡمِنِينَ كِتَٰبٗا مَّوۡقُوتٗا (Indeed, prayer has been decreed upon the believers at specified times)"},
-    {"Word (Arabic)": "جنة", "Transliteration": "Jannah", "Meaning": "Paradise", "Example": "وَسِيقَ ٱلَّذِينَ ٱتَّقَوۡاْ رَبَّهُمۡ إِلَى ٱلۡجَنَّةِ زُمَرًا (And those who feared their Lord were driven to Paradise in groups)"},
-    {"Word (Arabic)": "كتاب", "Transliteration": "Kitab", "Meaning": "Book", "Example": "ذَٰلِكَ ٱلۡكِتَٰبُ لَا رَيۡبَ فِيهِ (That is the Book, there is no doubt in it)"},
     {"Word (Arabic)": "نفس", "Transliteration": "Nafs", "Meaning": "Soul, Self", "Example": "كُلُّ نَفۡسٖ ذَآئِقَةُ ٱلۡمَوۡتِ (Every soul will taste death)"},
-    {"Word (Arabic)": "رحمة", "Transliteration": "Rahma", "Meaning": "Mercy", "Example": "وَرَحۡمَتِي وَسِعَتۡ كُلَّ شَيۡءٖ (And My Mercy encompasses all things)"},
     {"Word (Arabic)": "عذاب", "Transliteration": "Azaab", "Meaning": "Punishment", "Example": "إِنَّ عَذَابَ رَبِّكَ لَوَٰقِعٞ (Indeed, the punishment of your Lord will occur)"},
-    {"Word (Arabic)": "خلق", "Transliteration": "Khalaqa", "Meaning": "He created", "Example": "خَلَقَ ٱللَّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَ (Allah created the heavens and the earth)"},
     {"Word (Arabic)": "آمن", "Transliteration": "Aamana", "Meaning": "He believed", "Example": "فَأَمَّا ٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّٰلِحَٰتِ (As for those who believed and did righteous deeds)"},
     {"Word (Arabic)": "ظلم", "Transliteration": "Zalama", "Meaning": "He wronged", "Example": "وَمَا ظَلَمُونَا وَلَٰكِن كَانُوٓاْ أَنفُسَهُمۡ يَظۡلِمُونَ (And they did not wrong Us, but they were wronging themselves)"},
     {"Word (Arabic)": "نار", "Transliteration": "Naar", "Meaning": "Fire", "Example": "وَٱلۡقَوۡدُهَا ٱلنَّاسُ وَٱلۡحِجَارَةُ (Its fuel is people and stones)"},
@@ -87,7 +82,6 @@ quranic_words = [
     {"Word (Arabic)": "رزق", "Transliteration": "Rizq", "Meaning": "Provision, Sustenance", "Example": "وَمَا مِن دَآبَّةٍ فِي ٱلۡأَرۡضِ إِلَّا عَلَى ٱللَّهِ رِزۡقُهَا (There is no creature on earth but its provision is upon Allah)"},
     {"Word (Arabic)": "رحمة", "Transliteration": "Rahmah", "Meaning": "Mercy", "Example": "وَرَبُّكَ ٱلۡغَفُورُ ذُو ٱلرَّحۡمَةِ (Your Lord is the Forgiving, the Possessor of Mercy)"},
     {"Word (Arabic)": "عدل", "Transliteration": "'Adl", "Meaning": "Justice, Fairness", "Example": "وَأَقِيمُواْ ٱلۡوَزۡنَ بِٱلۡقِسۡطِ (And establish weight in justice)"},
-    {"Word (Arabic)": "ملك", "Transliteration": "Malik", "Meaning": "King, Owner", "Example": "مَٰلِكِ يَوۡمِ ٱلدِّينِ (Master of the Day of Judgment)"},
     {"Word (Arabic)": "سمع", "Transliteration": "Sam'a", "Meaning": "Hearing", "Example": "إِنَّ ٱللَّهَ هُوَ ٱلسَّمِيعُ ٱلۡبَصِيرُ (Indeed, Allah is the Hearing, the Seeing)"},
     {"Word (Arabic)": "بصر", "Transliteration": "Basr", "Meaning": "Sight", "Example": "وَجَعَلۡنَا لَهُمۡ سَمۡعٗا وَأَبۡصَٰرٗا (And We gave them hearing and vision)"},
     {"Word (Arabic)": "هدى", "Transliteration": "Huda", "Meaning": "Guidance", "Example": "إِنَّ هَٰذَا ٱلۡقُرۡءَانَ يَهۡدِي لِلَّتِي هِيَ أَقۡوَمُ (Indeed, this Quran guides to that which is most upright)"},
@@ -124,7 +118,6 @@ quranic_words = [
     {"Word (Arabic)": "أجر", "Transliteration": "Ajr", "Meaning": "Reward", "Example": "إِنَّ ٱلۡمُتَّقِينَ لَهُمۡ أَجۡرٌ كَبِيرٞ (Indeed, for the righteous is a great reward)"},
     {"Word (Arabic)": "نور", "Transliteration": "Nur", "Meaning": "Light", "Example": "ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (Allah is the Light of the heavens and the earth)"},
     {"Word (Arabic)": "ظلم", "Transliteration": "Zulm", "Meaning": "Oppression, Darkness", "Example": "وَٱلظَّٰلِمُونَ هُمۡ أَصۡحَٰبُ ٱلنَّارِ (And the wrongdoers are the companions of the Fire)"},
-    {"Word (Arabic)": "رزق", "Transliteration": "Rizq", "Meaning": "Provision, Sustenance", "Example": "وَمَا مِن دَآبَّةٍ فِي ٱلۡأَرۡضِ إِلَّا عَلَى ٱللَّهِ رِزۡقُهَا (There is no creature on earth but its provision is upon Allah)"},
     {"Word (Arabic)": "شهادة", "Transliteration": "Shahada", "Meaning": "Testimony, Witness", "Example": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ (Allah bears witness that there is no deity except Him)"},
     {"Word (Arabic)": "حق", "Transliteration": "Haq", "Meaning": "Truth, Right", "Example": "وَبِٱلۡحَقِّ أَنزَلۡنَٰهُ وَبِٱلۡحَقِّ نَزَلَ (And with the truth We have sent it down, and with the truth it has descended)"},
     {"Word (Arabic)": "باطل", "Transliteration": "Batil", "Meaning": "Falsehood", "Example": "وَقُلۡ جَآءَ ٱلۡحَقُّ وَزَهَقَ ٱلۡبَٰطِلُ (Say, 'Truth has come, and falsehood has departed')"},
@@ -247,7 +240,6 @@ quranic_words = [
     {"Word (Arabic)": "بر", "Transliteration": "Birr", "Meaning": "Righteousness", "Example": "فَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَاةَ (Establish prayer and give zakah)"},
     {"Word (Arabic)": "آية", "Transliteration": "Ayah", "Meaning": "Sign, Verse", "Example": "وَفِى كُلِّ أَمْرٍۢ (And in every matter there is a sign)"},
     {"Word (Arabic)": "خوف", "Transliteration": "Khauf", "Meaning": "Fear", "Example": "وَإِذَا لَمْ تَأْتِ فِى (If you do not come forward)"},
-    {"Word (Arabic)": "عدل", "Transliteration": "Adl", "Meaning": "Justice", "Example": "إِنَّ ٱللَّهَ يَأۡمُرُكُم بِالۡعَدْلِ (Indeed, Allah commands you to act justly)"},
     {"Word (Arabic)": "علم", "Transliteration": "Ilm", "Meaning": "Knowledge", "Example": "وَعَلَّمَ أَدَمَ ٱلْأَسْمَٰٓءَ كُلَّهَا (And taught Adam the names of all things)"},
     {"Word (Arabic)": "أمانة", "Transliteration": "Amanah", "Meaning": "Trust, Integrity", "Example": "إِنَّ ٱللَّهَ يَأۡمُرُكُمۡ أَن تُؤَدُّوا۟ ٱلۡأَمَٰنَٰتِ (Indeed, Allah commands you to return trusts)"},
     {"Word (Arabic)": "شكر", "Transliteration": "Shukr", "Meaning": "Gratitude, Thankfulness", "Example": "فَٱشْكُرُوا۟ لِى وَلَا تَكْفُرُونِ (So be grateful to Me and do not deny Me)"},
@@ -390,4 +382,3 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
