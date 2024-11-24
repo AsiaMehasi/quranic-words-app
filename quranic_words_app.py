@@ -290,6 +290,7 @@ quranic_words = [
     {"Word (Arabic)": "أم", "Transliteration": "Um", "Meaning": "Mother", "Example": "أُمُّهُۥٓ (His mother)"},
 ]
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -357,7 +358,7 @@ if end_index < len(df_filtered):
 with col3:
     if st.button("Home"):
         st.session_state.current_page = 0  # Reset to the first page
-        st.experimental_rerun()  # Force Streamlit to rerun the script, refreshing the page
+        st.rerun()  # Force Streamlit to rerun the script, refreshing the page
 
 # Custom CSS for improved styling
 st.markdown("""
