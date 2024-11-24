@@ -295,7 +295,7 @@ quranic_words = [
 df = pd.DataFrame(quranic_words)
 
 # Set the number of words per page
-words_per_page = 50
+words_per_page = 15
 
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
