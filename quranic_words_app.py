@@ -295,7 +295,7 @@ quranic_words = [
 df = pd.DataFrame(quranic_words)
 
 # Set the number of words per page
-words_per_page = 20
+words_per_page = 15
 
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
@@ -357,10 +357,10 @@ if end_index < len(df_filtered):
 # "Home" button to return to the first page
 with col3:
     if st.button("Home"):
-        # Reset the session state variables to go back to the first page and clear the search
+        # Reset session state variables to go back to the first page
         st.session_state.search_query = ""  # Clear search query
         st.session_state.current_page = 0  # Reset to the first page
-        # Instead of rerun, we can just let the app naturally refresh with updated session state
+        st.experimental_rerun()  # Trigger a rerun to refresh the page
 
 # Custom CSS for improved styling
 st.markdown("""
