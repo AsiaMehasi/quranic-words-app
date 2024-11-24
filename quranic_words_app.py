@@ -291,6 +291,7 @@ quranic_words = [
 ]
 
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -363,6 +364,26 @@ with col2:
 # Show 'Next' button only if more pages exist
 with col3:
     st.button("Next", on_click=next_page, key="next_btn", help="Go to next page")
+
+# Display 'Home' button only after a search query is entered
+if search_query:
+    st.markdown("""
+        <div style="position: fixed; top: 20px; right: 20px;">
+            <form action="/" method="get">
+                <button type="submit" style="
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;">
+                    Home
+                </button>
+            </form>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Custom CSS for improved styling
 st.markdown("""
