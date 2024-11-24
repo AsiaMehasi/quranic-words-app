@@ -292,6 +292,7 @@ quranic_words = [
 
 
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -368,7 +369,7 @@ with col3:
 # Display 'Home' button only after a search query is entered
 if search_query:
     st.markdown("""
-        <div style="position: fixed; top: 20px; right: 20px;">
+        <div style="position: fixed; top: 150px; right: 20px;">
             <form action="/" method="get">
                 <button type="submit" style="
                     background-color: #4CAF50;
@@ -413,6 +414,9 @@ st.markdown("""
         padding: 10px;
         border-radius: 12px;
         border: 1px solid #ddd;
+        width: 50%; /* Resize to half its size */
+        line-height: 1.5em; /* Center text vertically */
+        margin: 0 auto; /* Center horizontally */
     }
 
     .stMarkdown h1 {
