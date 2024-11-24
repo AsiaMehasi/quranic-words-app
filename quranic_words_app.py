@@ -294,13 +294,8 @@ quranic_words = [
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
-# Handle missing values for filtering
-df['Word (Arabic)'] = df['Word (Arabic)'].fillna("")
-df['Meaning'] = df['Meaning'].fillna("")
-
 # Set the number of words per page
 words_per_page = 15
-
 
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
@@ -343,12 +338,12 @@ for idx, (index, row) in enumerate(page_words.iterrows(), st.session_state.curre
 # Create a container for page number buttons and make them fit in a single line
 page_buttons = st.container()
 with page_buttons:
-    # Create a row of page number buttons
-    columns = st.columns(total_pages)  # Create as many columns as the number of pages
-    for page_num, col in enumerate(columns, 1):
-        if col.button(str(page_num), key=f"page_{page_num}", help=f"Go to page {page_num}"):
+    # Create a row of clickable page number buttons
+    cols = st.columns(total_pages)  # Create as many columns as the number of pages
+    for page_num, col in enumerate(cols, 1):
+        if col.button(f"{page_num}", key=f"page_{page_num}", help=f"Go to page {page_num}"):
             st.session_state.current_page = page_num - 1  # Adjust for 0-based index
-            st.experimental_rerun()  # Rerun to refresh the page with new content
+            break  # Don't need to rerun, just update the current page
 
 # Display 'Home' button only after a search query is entered
 if search_query:
@@ -445,3 +440,4 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
