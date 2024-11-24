@@ -290,6 +290,7 @@ quranic_words = [
     {"Word (Arabic)": "أم", "Transliteration": "Um", "Meaning": "Mother", "Example": "أُمُّهُۥٓ (His mother)"},
 ]
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -304,6 +305,11 @@ if search_query:
     ].drop_duplicates()
 else:
     df_filtered = df
+
+# Display the title "Quranic Words" at the top
+st.markdown("""
+    <h1 style='text-align: center; color: #2C6E49; font-family: "Georgia", serif; font-size: 40px; margin-top: 50px;'>Quranic Words</h1>
+""", unsafe_allow_html=True)
 
 # Display the words for the current page with continuous numbering
 for idx, (index, row) in enumerate(df_filtered.iterrows(), 1):
@@ -333,6 +339,13 @@ if search_query:
             </form>
         </div>
     """, unsafe_allow_html=True)
+
+# Display attribution at the bottom of the page
+st.markdown("""
+    <div style="position: fixed; bottom: 10px; left: 10px; font-size: 12px; color: #888888; font-family: 'Helvetica', sans-serif;">
+        Made by Asia Mehasi
+    </div>
+""", unsafe_allow_html=True)
 
 # Custom CSS for improved styling
 st.markdown(""" 
