@@ -357,9 +357,9 @@ if end_index < len(df_filtered):
 # "Home" button to return to the first page
 with col3:
     if st.button("Home"):
+        st.session_state.search_query = ""  # Reset search query
         st.session_state.current_page = 0  # Reset to the first page
-        # This will automatically update the page without the need for st.rerun()
-        st.experimental_get_query_params()  # Trigger page refresh
+        st.experimental_rerun()  # Trigger a rerun to refresh the page and show the full list
 
 # Custom CSS for improved styling
 st.markdown("""
