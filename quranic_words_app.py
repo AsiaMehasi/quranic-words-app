@@ -330,15 +330,15 @@ if search_query:
 else:
     df_filtered = df
 
-# Calculate the total number of pages
+# Calculate the total number of pages for the filtered data
 total_pages = len(df_filtered) // words_per_page + (1 if len(df_filtered) % words_per_page > 0 else 0)
-    
+
 # Calculate the starting and ending index for the current page
 start_index = st.session_state.current_page * words_per_page
 end_index = start_index + words_per_page
 
 # Get the words to display for the current page
-page_words = df.iloc[start_index:end_index]
+page_words = df_filtered.iloc[start_index:end_index]
 
 # Display the words for the current page
 st.markdown("## Quranic Words List")
@@ -357,7 +357,6 @@ col1, col2 = st.columns([1, 5])
 with col2:
     st.write(f"**Page {st.session_state.current_page + 1} of {total_pages}**")
 
-
 # Show 'Previous' button only if not on the first page
 if st.session_state.current_page > 0:
     with col1:
@@ -365,7 +364,7 @@ if st.session_state.current_page > 0:
             st.session_state.current_page -= 1
 
 # Show 'Next' button only if more pages exist
-if end_index < len(df):
+if end_index < len(df_filtered):
     with col2:
         if st.button("Next"):
             st.session_state.current_page += 1
@@ -392,35 +391,3 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-# Streamlit App
-# st.title("Learn Quranic Words")
-
-# st.write("Explore the meanings of the most used words in the Quran.")
-
-# Display the DataFrame as a table (Streamlit automatically renders DataFrames beautifully)
-# st.write(df)
-
-# If you want to display each word in more detail:
-# for index, row in df.iterrows():
-  #  st.subheader(row['Word (Arabic)'])
-    
-    # Transliteration
-   # if pd.notnull(row['Transliteration']):
-    #    st.write(f"**Transliteration**: {row['Transliteration']}")
-    #else:
-     #   st.write("**Transliteration**: Not Available")
-    
-    # Meaning
-    #if pd.notnull(row['Meaning']):
-     #   st.write(f"**Meaning**: {row['Meaning']}")
-    #else:
-     #   st.write("**Meaning**: Not Available")
-    
-    # Example
-  #  if pd.notnull(row['Example']):
-   #     st.write(f"**Example**: {row['Example']}")
-    # else:
-     #   st.write("**Example**: Not Available")
-    
-    #st.write("---")  # Add a separator for readability
