@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 quranic_words = [
-    {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱلۡعَصۡرِ (By Time)"},
+ {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱلۡعَصۡرِ (By Time)"},
  {"Word (Arabic)": "في" , "Transliteration": "Fi", "Meaning": "In, Inside", "Example": "فِي ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (In the heavens and the earth)"},
  {"Word (Arabic)": "من" , "Transliteration": "Min", "Meaning": "From, Of", "Example": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ (From among the jinn and mankind)"},
  {"Word (Arabic)": "على ", "Transliteration" : "'Ala", "Meaning": "On, Upon", "Example": "وَعَلَىٰ ٱللَّهِ فَلۡيَتَوَكَّلِ ٱلۡمُؤۡمِنُونَ (And upon Allah let the believers rely)"},
@@ -174,7 +174,56 @@ quranic_words = [
  {"Word (Arabic)": "سورة", "Transliteration": "Surah", "Meaning": "Chapter, Surah", "Example": "وَقُرْءَٰنًا فَرَقْنَٰهُ لِيَتْلُوهُ عَلَىٰكُ (And a Qur’an that We have divided for you to recite)"},
  {"Word (Arabic)": "قضاء", "Transliteration": "Qada’a", "Meaning": "Decree", "Example": "قَدْ قَضَتْ قَضَاءًۭ وَإِنَّ اللَّٰهِ قَٰضٍۢ (He decreed it as a judgment, and indeed, Allah is the best of judges)"},
  {"Word (Arabic)": "مغفرة", "Transliteration": "Maghfirah", "Meaning": "Forgiveness", "Example": "فَٱغْفِرْ لِىٰ إِنَّكَ أَنتَ ٱلْغَفُورُ (So forgive me, indeed, You are the Forgiving)"},
-
+{"Word (Arabic)": "رحمن", "Transliteration": "Rahman", "Meaning": "Most Merciful", "Example": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (In the name of Allah, the Most Merciful, the Most Compassionate)"
+    },
+    {
+        "Word (Arabic)": "قدير",
+        "Transliteration": "Qadeer",
+        "Meaning": "All-Powerful",
+        "Example": "إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ (Indeed, Allah is All-Powerful over everything)"
+    },
+    {
+        "Word (Arabic)": "عليم",
+        "Transliteration": "Aleem",
+        "Meaning": "All-Knowing",
+        "Example": "إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا (Indeed, Allah is All-Knowing, All-Wise)"
+    },
+    {
+        "Word (Arabic)": "توحيد",
+        "Transliteration": "Tawheed",
+        "Meaning": "Oneness (of Allah)",
+        "Example": "وَإِلَٰهُكُمْ إِلَٰهٌ وَٰحِدٌ (And your God is One God)"
+    },
+    {
+        "Word (Arabic)": "شرك",
+        "Transliteration": "Shirk",
+        "Meaning": "Associating partners with Allah",
+        "Example": "إِنَّ اللَّهَ لَا يَغْفِرُ أَنْ يُشْرَكَ بِهِ (Indeed, Allah does not forgive associating others with Him)"
+    },
+    {
+        "Word (Arabic)": "صيام",
+        "Transliteration": "Siyam",
+        "Meaning": "Fasting",
+        "Example": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ (O you who believe, fasting is prescribed for you)"
+    },
+    {
+        "Word (Arabic)": "صدق",
+        "Transliteration": "Sadaq",
+        "Meaning": "Truthfulness",
+        "Example": "وَكُونُوا مَعَ الصَّادِقِينَ (And be with the truthful)"
+    },
+    {
+        "Word (Arabic)": "إحسان",
+        "Transliteration": "Ihsan",
+        "Meaning": "Excellence",
+        "Example": "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ (Indeed, Allah loves those who strive for excellence)"
+    },
+    {
+        "Word (Arabic)": "رسول",
+        "Transliteration": "Rasool",
+        "Meaning": "Messenger",
+        "Example": "وَإِذْ بَعَثَ اللَّهُ نَبِيًّا رَسُولًا (And when Allah sends forth a prophet as a messenger)"
+    }
 ]
 
 
