@@ -309,6 +309,7 @@ else:
 # Display the title "Quranic Words" at the top
 st.markdown("""
     <h1 style='text-align: center; color: #2C6E49; font-family: "Georgia", serif; font-size: 40px; margin-top: 50px;'>Quranic Words</h1>
+    <h3 style='text-align: center; color: #4C9D5A; font-family: "Helvetica", sans-serif; font-size: 22px;'>Commonly used words</h3>
 """, unsafe_allow_html=True)
 
 # Display the words for the current page with continuous numbering
@@ -386,7 +387,8 @@ st.markdown("""
     }
 
     .stMarkdown h3 {
-        color: #2C6E49;
+        color: #4C9D5A;
+        font-family: 'Helvetica', sans-serif;
     }
 
     .stMarkdown ul {
