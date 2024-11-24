@@ -294,6 +294,10 @@ quranic_words = [
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
+# Handle missing values for filtering
+df['Word (Arabic)'] = df['Word (Arabic)'].fillna("")
+df['Meaning'] = df['Meaning'].fillna("")
+
 # Set the number of words per page
 words_per_page = 15
 
@@ -309,9 +313,10 @@ st.session_state.search_query = search_query
 
 # Filter words based on the search query
 if search_query:
-    # Filter the dataframe and remove duplicates
-    df_filtered = df[df['Word (Arabic)'].str.contains(search_query, case=False) | df['Meaning'].str.contains(search_query, case=False)]
-    df_filtered = df_filtered.drop_duplicates()  # Remove duplicates after filtering
+    df_filtered = df[
+        df['Word (Arabic)'].str.contains(search_query, case=False) |
+        df['Meaning'].str.contains(search_query, case=False)
+    ].drop_duplicates()
 else:
     df_filtered = df
 
@@ -330,19 +335,26 @@ st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List<
 
 for index, row in page_words.iterrows():
     # Arabic word in green color
-    st.subheader(f"<span style='color: #2C6E49;'>{row['Word (Arabic)']}</span>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='color: #2C6E49;'>{row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
 
-# Navigation buttons with better alignment
+# Navigation buttons with callbacks
+def prev_page():
+    if st.session_state.current_page > 0:
+        st.session_state.current_page -= 1
+
+def next_page():
+    if st.session_state.current_page < total_pages - 1:
+        st.session_state.current_page += 1
+
 col1, col2, col3 = st.columns([1, 5, 1])
 
 # Show 'Previous' button only if not on the first page
 with col1:
-    if st.button("Previous", key="prev_btn", help="Go to previous page"):
-        st.session_state.current_page -= 1
+    st.button("Previous", on_click=prev_page, key="prev_btn", help="Go to previous page")
 
 # Show the page number
 with col2:
@@ -350,17 +362,7 @@ with col2:
 
 # Show 'Next' button only if more pages exist
 with col3:
-    if st.button("Next", key="next_btn", help="Go to next page"):
-        st.session_state.current_page += 1
-
-# "Home" button at the top right corner
-st.markdown("""
-    <div style="position: fixed; top: 20px; right: 20px;">
-        <button style="background-color: #4CAF50; color: white; border: none; border-radius: 12px; padding: 10px 20px; font-size: 16px;">
-            Home
-        </button>
-    </div>
-""", unsafe_allow_html=True)
+    st.button("Next", on_click=next_page, key="next_btn", help="Go to next page")
 
 # Custom CSS for improved styling
 st.markdown("""
