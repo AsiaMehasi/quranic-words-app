@@ -357,6 +357,7 @@ if end_index < len(df_filtered):
 with col3:
     if st.button("Home"):
         st.session_state.current_page = 0  # Reset to the first page
+        st.experimental_rerun()  # Force Streamlit to rerun the script, refreshing the page
 
 # Custom CSS for improved styling
 st.markdown("""
