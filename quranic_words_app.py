@@ -296,11 +296,8 @@ quranic_words = [
     {"Word (Arabic)": "أم", "Transliteration": "Um", "Meaning": "Mother", "Example": "أُمُّهُۥٓ (His mother)"},
 ]
 
-# Convert the list of dictionaries into a pandas DataFrame (this makes it easier to display and manipulate)
+# Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
-
-# Display column names to ensure you are using the right ones
-st.write(df.columns)  # This will show the column names in the Streamlit app
 
 # Set the number of words per page
 words_per_page = 50
@@ -310,15 +307,16 @@ if 'current_page' not in st.session_state:
     st.session_state.current_page = 0
 if 'search_query' not in st.session_state:
     st.session_state.search_query = ""
-    
+
 # Search bar to filter words
 search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
 st.session_state.search_query = search_query
 
 # Filter words based on the search query
 if search_query:
-    # Make sure to use the correct column names (e.g., 'Word (Arabic)' and 'Meaning')
+    # Filter the dataframe and remove duplicates
     df_filtered = df[df['Word (Arabic)'].str.contains(search_query, case=False) | df['Meaning'].str.contains(search_query, case=False)]
+    df_filtered = df_filtered.drop_duplicates()  # Remove duplicates after filtering
 else:
     df_filtered = df
 
@@ -360,7 +358,6 @@ if end_index < len(df_filtered):
     with col2:
         if st.button("Next"):
             st.session_state.current_page += 1
-
 
 # Custom CSS for improved styling
 st.markdown("""
