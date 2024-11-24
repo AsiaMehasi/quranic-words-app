@@ -301,6 +301,7 @@ df['Meaning'] = df['Meaning'].fillna("")
 # Set the number of words per page
 words_per_page = 15
 
+
 # Initialize session state variables if not already set
 if 'current_page' not in st.session_state:
     st.session_state.current_page = 0
@@ -339,14 +340,13 @@ for idx, (index, row) in enumerate(page_words.iterrows(), st.session_state.curre
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
 
-# Generate clickable page numbers horizontally
-col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])  # You can increase the number of columns based on total pages
-
-# Show the clickable page numbers horizontally
-with col2:
-    page_buttons = []
-    for page_num in range(1, total_pages + 1):
-        if st.button(str(page_num), key=f"page_{page_num}", help=f"Go to page {page_num}"):
+# Create a container for page number buttons and make them fit in a single line
+page_buttons = st.container()
+with page_buttons:
+    # Create a row of page number buttons
+    columns = st.columns(total_pages)  # Create as many columns as the number of pages
+    for page_num, col in enumerate(columns, 1):
+        if col.button(str(page_num), key=f"page_{page_num}", help=f"Go to page {page_num}"):
             st.session_state.current_page = page_num - 1  # Adjust for 0-based index
             st.experimental_rerun()  # Rerun to refresh the page with new content
 
@@ -426,18 +426,20 @@ st.markdown("""
         padding: 10px;
     }
 
-    /* Styling for horizontal page numbers */
+    /* Styling for page number buttons */
     .stButton {
         display: inline-block;
         margin: 5px;
-        font-size: 16px;
+        font-size: 12px;
         padding: 5px 10px;
         cursor: pointer;
         text-align: center;
         background-color: #4CAF50;
         color: white;
         border-radius: 5px;
+        width: auto;
     }
+
     .stButton:hover {
         background-color: #45a049;
     }
