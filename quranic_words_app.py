@@ -292,6 +292,8 @@ quranic_words = [
 
 
 
+
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -331,12 +333,10 @@ end_index = start_index + words_per_page
 # Get the words to display for the current page
 page_words = df_filtered.iloc[start_index:end_index]
 
-# Display the words for the current page
-st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List</h1>", unsafe_allow_html=True)
-
-for index, row in page_words.iterrows():
-    # Arabic word in green color
-    st.markdown(f"<h2 style='color: #2C6E49;'>{row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
+# Display the words for the current page with numbers
+for idx, (index, row) in enumerate(page_words.iterrows(), 1):  # Start numbering from 1
+    # Arabic word in green color with a number in front
+    st.markdown(f"<h2 style='color: #2C6E49;'>{idx}. {row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
@@ -410,11 +410,12 @@ st.markdown("""
 
     .stTextInput>div>input {
         font-size: 18px;
-        padding: 10px;
+        padding: 10px 10px;
         border-radius: 12px;
         border: 1px solid #ddd;
         width: 50%; /* Resize to half its size */
-        line-height: 1.5em; /* Center text vertically */
+        height: 40px; /* Set height for vertical centering */
+        line-height: 40px; /* Match height for text centering */
         margin: 0 auto; /* Center horizontally */
     }
 
