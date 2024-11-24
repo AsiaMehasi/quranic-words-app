@@ -291,6 +291,7 @@ quranic_words = [
 ]
 
 
+
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -326,45 +327,49 @@ end_index = start_index + words_per_page
 page_words = df_filtered.iloc[start_index:end_index]
 
 # Display the words for the current page
-st.markdown("## Quranic Words List")
+st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List</h1>", unsafe_allow_html=True)
 
 for index, row in page_words.iterrows():
-    st.subheader(f"Word: {row['Word (Arabic)']}")
+    st.subheader(f"Word: {row['Word (Arabic)']}", anchor=f"word_{index}")
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
 
-# Navigation buttons
+# Navigation buttons with better alignment
 col1, col2, col3 = st.columns([1, 5, 1])
 
 # Show the page number
 with col2:
-    st.write(f"**Page {st.session_state.current_page + 1} of {total_pages}**")
+    st.markdown(f"<h3 style='text-align: center; color: #2C6E49;'>Page {st.session_state.current_page + 1} of {total_pages}</h3>", unsafe_allow_html=True)
 
 # Show 'Previous' button only if not on the first page
 if st.session_state.current_page > 0:
     with col1:
-        if st.button("Previous"):
+        if st.button("Previous", key="prev_btn", help="Go to previous page"):
             st.session_state.current_page -= 1
 
 # Show 'Next' button only if more pages exist
 if end_index < len(df_filtered):
     with col2:
-        if st.button("Next"):
+        if st.button("Next", key="next_btn", help="Go to next page"):
             st.session_state.current_page += 1
 
 # "Home" button to return to the first page
 with col3:
-    if st.button("Home"):
+    if st.button("Home", key="home_btn", help="Go back to the first page"):
         # Reset session state variables to go back to the first page
         st.session_state.search_query = ""  # Clear search query
         st.session_state.current_page = 0  # Reset to the first page
-        # No need for rerun here, just rely on session state
 
 # Custom CSS for improved styling
 st.markdown("""
     <style>
+    body {
+        background-color: #F4F6F2;
+        font-family: 'Helvetica', sans-serif;
+    }
+
     .stButton>button {
         background-color: #4CAF50;
         color: white;
@@ -372,13 +377,38 @@ st.markdown("""
         border-radius: 12px;
         padding: 10px 20px;
         font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
     }
+
     .stButton>button:hover {
         background-color: #45a049;
     }
+
     .stTextInput>div>input {
         font-size: 18px;
         padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .stMarkdown h1 {
+        color: #2C6E49;
+        font-family: 'Georgia', serif;
+    }
+
+    .stMarkdown h3 {
+        color: #2C6E49;
+    }
+
+    .stMarkdown ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .stMarkdown li {
+        margin-bottom: 10px;
+        font-size: 18px;
     }
     </style>
 """, unsafe_allow_html=True)
