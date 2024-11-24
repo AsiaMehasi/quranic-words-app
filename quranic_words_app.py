@@ -280,7 +280,7 @@ if search_query:
 # Display attribution at the bottom of the page
 st.markdown("""
     <div style="position: fixed; bottom: 10px; left: 10px; font-size: 12px; color: #888888; font-family: 'Helvetica', sans-serif;">
-        Made by Asia Mehasi
+        Made by Asia Mehasi - if you find any mistakes email me on amehasi@gmail.com.
     </div>
 """, unsafe_allow_html=True)
 
