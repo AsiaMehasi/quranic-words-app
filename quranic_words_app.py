@@ -307,6 +307,9 @@ quranic_words = [
 # Convert the list of dictionaries into a pandas DataFrame (this makes it easier to display and manipulate)
 df = pd.DataFrame(quranic_words)
 
+# Display column names to ensure you are using the right ones
+st.write(df.columns)  # This will show the column names in the Streamlit app
+
 # Set the number of words per page
 words_per_page = 50
 
@@ -340,7 +343,7 @@ page_words = df.iloc[start_index:end_index]
 st.markdown("## Quranic Words List")
 
 for index, row in page_words.iterrows():
-    st.subheader(f"Word: {row['Arabic']}")
+    st.subheader(f"Word: {row['Word (Arabic)']}")
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
