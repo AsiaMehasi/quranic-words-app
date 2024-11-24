@@ -315,7 +315,7 @@ if 'current_page' not in st.session_state:
     st.session_state.current_page = 0
 if 'search_query' not in st.session_state:
     st.session_state.search_query = ""
-
+    
 # Search bar to filter words
 search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
 st.session_state.search_query = search_query
@@ -366,78 +366,6 @@ if end_index < len(df):
         if st.button("Next"):
             st.session_state.current_page += 1
 
-import streamlit as st
-import pandas as pd
-
-# Sample dataset (replace this with your full dataset of Quranic words)
-quranic_words = [
-    {"Arabic": "الله", "Transliteration": "Allah", "Meaning": "God", "Example": "Allah is the greatest."},
-    {"Arabic": "رحمة", "Transliteration": "Rahma", "Meaning": "Mercy", "Example": "May Allah's mercy be upon you."},
-    {"Arabic": "سلام", "Transliteration": "Salam", "Meaning": "Peace", "Example": "May peace be upon you."},
-    {"Arabic": "نور", "Transliteration": "Nur", "Meaning": "Light", "Example": "The light of guidance."},
-    # Add more words here...
-]
-
-# Convert the list into a DataFrame
-df = pd.DataFrame(quranic_words)
-
-# Set the number of words per page
-words_per_page = 50
-
-# Create a session state to keep track of the current page and search query
-if 'current_page' not in st.session_state:
-    st.session_state.current_page = 0
-if 'search_query' not in st.session_state:
-    st.session_state.search_query = ""
-
-# Search bar to filter words
-search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
-st.session_state.search_query = search_query
-
-# Filter words based on the search query
-if search_query:
-    df_filtered = df[df['Arabic'].str.contains(search_query, case=False) | df['Meaning'].str.contains(search_query, case=False)]
-else:
-    df_filtered = df
-
-# Calculate the total number of pages
-total_pages = len(df_filtered) // words_per_page + (1 if len(df_filtered) % words_per_page > 0 else 0)
-
-# Calculate the starting and ending index for the current page
-start_index = st.session_state.current_page * words_per_page
-end_index = start_index + words_per_page
-
-# Get the words to display for the current page
-page_words = df_filtered.iloc[start_index:end_index]
-
-# Display the words for the current page
-st.markdown("## Quranic Words List")
-
-for index, row in page_words.iterrows():
-    st.subheader(f"Word: {row['Arabic']}")
-    st.write(f"**Transliteration**: {row['Transliteration']}")
-    st.write(f"**Meaning**: {row['Meaning']}")
-    st.write(f"**Example**: {row['Example']}")
-    st.write("---")
-
-# Navigation buttons
-col1, col2, col3 = st.columns([1, 5, 1])
-
-# Show the page number
-with col2:
-    st.write(f"**Page {st.session_state.current_page + 1} of {total_pages}**")
-
-# Show 'Previous' button only if not on the first page
-if st.session_state.current_page > 0:
-    with col1:
-        if st.button("Previous"):
-            st.session_state.current_page -= 1
-
-# Show 'Next' button only if more pages exist
-if end_index < len(df_filtered):
-    with col3:
-        if st.button("Next"):
-            st.session_state.current_page += 1
 
 # Custom CSS for improved styling
 st.markdown("""
