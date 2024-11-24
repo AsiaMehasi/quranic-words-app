@@ -306,21 +306,8 @@ if 'current_page' not in st.session_state:
     st.session_state.current_page = 0
 if 'search_query' not in st.session_state:
     st.session_state.search_query = ""
-
-# JavaScript for scrolling to the top
-scroll_to_top_js = """
-<script>
-    document.getElementById('scroll-to-top-btn').click();
-</script>
-"""
-
-# Function to reset scroll position
-st.components.v1.html(
-    f"""
-    <button id="scroll-to-top-btn" style="display: none;" onclick="window.scrollTo(0, 0);"></button>
-    """,
-    height=0,
-)
+if 'scroll_trigger' not in st.session_state:
+    st.session_state.scroll_trigger = False
 
 # Search bar to filter words
 search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", st.session_state.search_query)
@@ -345,6 +332,18 @@ end_index = start_index + words_per_page
 # Get the words to display for the current page
 page_words = df_filtered.iloc[start_index:end_index]
 
+# Scroll to top trigger
+if st.session_state.scroll_trigger:
+    st.markdown(
+        """
+        <script>
+            window.scrollTo(0, 0);
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.session_state.scroll_trigger = False
+
 # Display the words for the current page
 st.markdown("<h1 style='text-align: center; color: #3A3A3A;'>Quranic Words List</h1>", unsafe_allow_html=True)
 
@@ -359,12 +358,12 @@ for index, row in page_words.iterrows():
 def prev_page():
     if st.session_state.current_page > 0:
         st.session_state.current_page -= 1
-        st.components.v1.html(scroll_to_top_js, height=0)
+        st.session_state.scroll_trigger = True
 
 def next_page():
     if st.session_state.current_page < total_pages - 1:
         st.session_state.current_page += 1
-        st.components.v1.html(scroll_to_top_js, height=0)
+        st.session_state.scroll_trigger = True
 
 col1, col2, col3 = st.columns([1, 5, 1])
 
@@ -383,7 +382,7 @@ with col3:
 # Display 'Home' button only after a search query is entered
 if search_query:
     st.markdown(f"""
-        <div style="position: absolute; top: 70px; right: 20px;">
+        <div style="position: absolute; top: 20px; right: 20px;">
             <form action="/" method="get">
                 <button type="submit" style="
                     background-color: #4CAF50;
@@ -440,20 +439,6 @@ st.markdown("""
 
     .stMarkdown h3 {
         color: #2C6E49;
-    }
-
-    .stMarkdown ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .stMarkdown li {
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-
-    .stTextInput div {
-        padding: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
