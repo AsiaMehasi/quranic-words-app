@@ -291,9 +291,6 @@ quranic_words = [
 ]
 
 
-
-
-
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
@@ -333,8 +330,8 @@ end_index = start_index + words_per_page
 # Get the words to display for the current page
 page_words = df_filtered.iloc[start_index:end_index]
 
-# Display the words for the current page with numbers
-for idx, (index, row) in enumerate(page_words.iterrows(), 1):  # Start numbering from 1
+# Display the words for the current page with continuous numbering
+for idx, (index, row) in enumerate(page_words.iterrows(), st.session_state.current_page * words_per_page + 1):
     # Arabic word in green color with a number in front
     st.markdown(f"<h2 style='color: #2C6E49;'>{idx}. {row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
@@ -342,28 +339,16 @@ for idx, (index, row) in enumerate(page_words.iterrows(), 1):  # Start numbering
     st.write(f"**Example**: {row['Example']}")
     st.write("---")
 
-# Navigation buttons with callbacks
-def prev_page():
-    if st.session_state.current_page > 0:
-        st.session_state.current_page -= 1
-
-def next_page():
-    if st.session_state.current_page < total_pages - 1:
-        st.session_state.current_page += 1
-
+# Generate clickable page numbers
 col1, col2, col3 = st.columns([1, 5, 1])
 
-# Show 'Previous' button only if not on the first page
-with col1:
-    st.button("Previous", on_click=prev_page, key="prev_btn", help="Go to previous page")
-
-# Show the page number
+# Show the clickable page numbers
 with col2:
-    st.markdown(f"<h3 style='text-align: center; color: #2C6E49;'>Page {st.session_state.current_page + 1} of {total_pages}</h3>", unsafe_allow_html=True)
-
-# Show 'Next' button only if more pages exist
-with col3:
-    st.button("Next", on_click=next_page, key="next_btn", help="Go to next page")
+    page_buttons = []
+    for page_num in range(1, total_pages + 1):
+        if st.button(str(page_num), key=f"page_{page_num}", help=f"Go to page {page_num}"):
+            st.session_state.current_page = page_num - 1  # Adjust for 0-based index
+            st.experimental_rerun()  # Rerun to refresh the page with new content
 
 # Display 'Home' button only after a search query is entered
 if search_query:
@@ -386,7 +371,7 @@ if search_query:
     """, unsafe_allow_html=True)
 
 # Custom CSS for improved styling
-st.markdown("""
+st.markdown(""" 
     <style>
     body {
         background-color: #F4F6F2;
@@ -410,13 +395,12 @@ st.markdown("""
 
     .stTextInput>div>input {
         font-size: 18px;
-        padding: 10px 10px;
+        padding: 10px;
         border-radius: 12px;
         border: 1px solid #ddd;
-        width: 50%; /* Resize to half its size */
-        height: 40px; /* Set height for vertical centering */
-        line-height: 40px; /* Match height for text centering */
-        margin: 0 auto; /* Center horizontally */
+        width: 50%;
+        line-height: 1.5em;
+        margin: 0 auto;
     }
 
     .stMarkdown h1 {
