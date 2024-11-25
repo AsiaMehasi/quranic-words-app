@@ -1,7 +1,7 @@
-from gtts import gTTS
-import io
 import streamlit as st
 import pandas as pd
+from gtts import gTTS
+import io
 
 quranic_words = [
  {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱلۡعَصۡرِ (By Time)"},
@@ -229,19 +229,18 @@ quranic_words = [
 ]
 
 
-
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
-# Function to generate audio on the fly
+# Function to generate audio dynamically
 def generate_audio(word):
     tts = gTTS(text=word, lang='ar')
-    audio_bytes = io.BytesIO()
+    audio_bytes = io.BytesIO()  # In-memory file
     tts.write_to_fp(audio_bytes)
-    audio_bytes.seek(0)
+    audio_bytes.seek(0)  # Rewind the file pointer
     return audio_bytes
 
-# Streamlit app interface
+# Streamlit App
 st.title("Quranic Words with Audio")
 
 # Search bar to filter words
@@ -257,7 +256,7 @@ else:
     df_filtered = df
 
 # Display words with audio playback
-for idx, row in df_filtered.iterrows():
+for _, row in df_filtered.iterrows():
     st.markdown(f"### {row['Word (Arabic)']}")
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
