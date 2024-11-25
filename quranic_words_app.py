@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-from gtts import gTTS
-import io
 
 quranic_words = [
  {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱلۡعَصۡرِ (By Time)"},
@@ -232,17 +230,6 @@ quranic_words = [
 # Convert the list of dictionaries into a pandas DataFrame
 df = pd.DataFrame(quranic_words)
 
-# Function to generate audio dynamically
-def generate_audio(word):
-    tts = gTTS(text=word, lang='ar')
-    audio_bytes = io.BytesIO()  # In-memory file
-    tts.write_to_fp(audio_bytes)
-    audio_bytes.seek(0)  # Rewind the file pointer
-    return audio_bytes
-
-# Streamlit App
-st.title("Quranic Words with Audio")
-
 # Search bar to filter words
 search_query = st.text_input("Search for a Quranic word (Arabic or Meaning):", "")
 
@@ -255,15 +242,103 @@ if search_query:
 else:
     df_filtered = df
 
-# Display words with audio playback
-for _, row in df_filtered.iterrows():
-    st.markdown(f"### {row['Word (Arabic)']}")
+# Display the title "Quranic Words" at the top
+st.markdown("""
+    <h1 style='text-align: center; color: #2C6E49; font-family: "Georgia", serif; font-size: 40px; margin-top: 50px;'>Quranic Words</h1>
+    <h3 style='text-align: center; color: #2C6E49; font-family: "Georgia", sans-serif; font-size: 22px;'>- Commonly used words in the Quran -</h3>
+""", unsafe_allow_html=True)
+
+# Display the words for the current page with continuous numbering
+for idx, (index, row) in enumerate(df_filtered.iterrows(), 1):
+    # Arabic word in green color with a number in front
+    st.markdown(f"<h2 style='color: #2C6E49;'>{idx}. {row['Word (Arabic)']}</h2>", unsafe_allow_html=True)
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
     st.write(f"**Example**: {row['Example']}")
-
-    # Generate and play audio dynamically
-    audio = generate_audio(row['Word (Arabic)'])
-    st.audio(audio, format="audio/mp3")
-
     st.write("---")
+
+# Display 'Home' button only after a search query is entered
+if search_query:
+    st.markdown(f"""
+        <div style="position: absolute; top: 70px; right: 20px;">
+            <form action="/" method="get">
+                <button type="submit" style="
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;">
+                    Home
+                </button>
+            </form>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Display attribution at the bottom of the page
+st.markdown("""
+    <div style="position: fixed; bottom: 10px; left: 10px; font-size: 12px; color: #888888; font-family: 'Helvetica', sans-serif;">
+        Made by Asia Mehasi <br> If you find any mistakes email me on amehasi@gmail.com.
+    </div>
+""", unsafe_allow_html=True)
+
+# Custom CSS for improved styling
+st.markdown(""" 
+    <style>
+    body {
+        background-color: #F4F6F2;
+        font-family: 'Helvetica', sans-serif;
+    }
+
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .stButton>button:hover {
+        background-color: #45a049;
+    }
+
+    .stTextInput>div>input {
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        width: 50%;
+        line-height: 1.5em;
+        margin: 0 auto;
+    }
+
+    .stMarkdown h1 {
+        color: #2C6E49;
+        font-family: 'Georgia', serif;
+    }
+
+    .stMarkdown h3 {
+        color: #4C9D5A;
+        font-family: 'Helvetica', sans-serif;
+    }
+
+    .stMarkdown ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .stMarkdown li {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .stTextInput div {
+        padding: 10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
