@@ -192,13 +192,13 @@ quranic_words = [
         "Word (Arabic)": "توحيد",
         "Transliteration": "Tawheed",
         "Meaning": "Oneness (of Allah)",
-        "Example": "وَإِلَٰهُكُمْ إِلَٰهٌ وَٰحِدٌ (And your God is One God)"
+        "Example": "إِنَّمَآ إِلَٰهُكُمْ إِلَٰهٌ وَٰحِدٌۢ لَّآ إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ (Your God is but one God; there is no deity except Him, the Most Gracious, the Most Merciful - Surah Al-Baqarah, 2:163)"
     },
     {
         "Word (Arabic)": "شرك",
         "Transliteration": "Shirk",
         "Meaning": "Associating partners with Allah",
-        "Example": "إِنَّ اللَّهَ لَا يَغْفِرُ أَنْ يُشْرَكَ بِهِ (Indeed, Allah does not forgive associating others with Him)"
+        "Example": "إِنَّ ٱللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِۦ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَآءُ ۚ وَمَن يُشْرِكْ بِٱللَّهِ فَقَدْ ضَلَّ ضَلَٰلًۭا بَعِيدًۭا (Indeed, Allah does not forgive associating partners with Him, but He forgives what is less than that for whom He wills. And whoever associates partners with Allah has certainly gone far astray - Surah An-Nisa, 4:116)"
     },
     {
         "Word (Arabic)": "صيام",
