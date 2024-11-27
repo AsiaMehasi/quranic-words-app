@@ -15,7 +15,7 @@ quranic_words = [
  {"Word (Arabic)": "قمر ", "Transliteration" : "Qamar", "Meaning": "Moon", "Example": "وَٱلْقَمَرِ إِذَا تَلَاهَا", "Translation": "And the moon when it follows it"},
  {"Word (Arabic)": "نجوم", "Transliteration": "Nujum", "Meaning": "Stars", "Example": "وَٱلنَّجْمِ وَٱلشَّجَرِ", "Translation": "By the stars and the trees"},
  {"Word (Arabic)": "سماء", "Transliteration": "Sama'", "Meaning": "Sky", "Example": "إِنَّ فِى سَمَٰوَٰتِهِۦ", "Translation": "Indeed in the heavens"},
- {"Word (Arabic)": "أرض ", "Transliteration" : "Ard", "Meaning": "Earth", "Example": "وَفِى ٱلۡأَرۡضِ", "Translation": "And in the earth"},
+ {"Word (Arabic)": "أرض ", "Transliteration" : "Ard", "Meaning": "Earth", "Example": " وَفِي ٱلۡأَرۡضِ ءَايَٰتٌ لِّلۡمُوقِنِينَ", "Translation": "And on the earth are signs for the certain in faith - Surah Al-Jathiya 45:3 "},
  {"Word (Arabic)": "جند ", "Transliteration" : "Jund", "Meaning": "Army", "Example": "وَكَانَ جُندُهُمَا هُنَالِكَ مَغۡلُوبِ", "Translation": "And their army was defeated there"},
  {"Word (Arabic)": "إصبع", "Transliteration": "Isba'", "Meaning": "Finger", "Example": "وَفَطَرْنَا ٱلۡإِصۡبَعَ", "Translation": "And we formed the fingers"},
  {"Word (Arabic)": "كف" , "Transliteration": "Kaff", "Meaning": "Palm of the hand", "Example": "يَدُ اللَّهِ فَوْقَ أَيْدِيهِمْ", "Translation": "The hand of Allah is over their hands - Surah Al-Fath, 48:10"},
