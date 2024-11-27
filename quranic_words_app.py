@@ -7,7 +7,7 @@ quranic_words = [
  {"Word (Arabic)": "من" , "Transliteration": "Min", "Meaning": "From, Of", "Example": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ (From among the jinn and mankind)"},
  {"Word (Arabic)": "على ", "Transliteration" : "'Ala", "Meaning": "On, Upon", "Example": "وَعَلَىٰ ٱللَّهِ فَلۡيَتَوَكَّلِ ٱلۡمُؤۡمِنُونَ (And upon Allah let the believers rely)"},
  {"Word (Arabic)": "إلى ", "Transliteration" : "Ila", "Meaning": "To", "Example": "إِلَىٰ رَبِّهِمْ يَحْشُرُونَ (To their Lord, they will be gathered)"},
- {"Word (Arabic)": "عن" , "Transliteration": "An", "Meaning": "About, Concerning", "Example": "قُلۡ سَمِيعٌۭ بِمَا فِى ٱلۡقُلُوبِ (Say, He is the All-Hearing of what is in the hearts)"},
+ {"Word (Arabic)": "عن" , "Transliteration": "An", "Meaning": "About, Concerning", "Example": "مَا عَن صَاحِبِكُم بِمَجۡنُونٍ (Your companion is not mad)"},
  {"Word (Arabic)": "رب" , "Transliteration": "Rabb", "Meaning": "Lord", "Example": "رَّبُّ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (The Lord of the heavens and the earth)"},
  {"Word (Arabic)": "سَلاَم", "Transliteration": "Salam", "Meaning": "Peace", "Example": "فَسَلَّمُوٓا۟ عَلَيْهِمْ بِسَلاَمٍۢ (Greet them with peace)"},
  {"Word (Arabic)": "توكل", "Transliteration": "Tawakkul", "Meaning": "Trust, Reliance", "Example": "وَعَلَىٰ رَبِّهِمۡ يَتَوَكَّلُونَ (And upon their Lord they rely)"},
