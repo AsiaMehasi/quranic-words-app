@@ -16,7 +16,7 @@ quranic_words = [
  {"Word (Arabic)": "نجوم", "Transliteration": "Nujum", "Meaning": "Stars", "Example": "وَٱلنَّجْمِ وَٱلشَّجَرِ", "Translation": "By the stars and the trees"},
  {"Word (Arabic)": "سماء", "Transliteration": "Sama'", "Meaning": "Sky", "Example": "إِنَّ فِى سَمَٰوَٰتِهِۦ", "Translation": "Indeed in the heavens"},
  {"Word (Arabic)": "أرض ", "Transliteration" : "Ard", "Meaning": "Earth", "Example": " وَفِي ٱلۡأَرۡضِ ءَايَٰتٌ لِّلۡمُوقِنِينَ", "Translation": "And on the earth are signs for the certain in faith - Surah Al-Jathiya 45:3 "},
- {"Word (Arabic)": "جند ", "Transliteration" : "Jund", "Meaning": "Army", "Example": "وَكَانَ جُندُهُمَا هُنَالِكَ مَغۡلُوبِ", "Translation": "And their army was defeated there"},
+ {"Word (Arabic)": "جند ", "Transliteration" : "Jund", "Meaning": "Army", "Example": "وَإِنَّ جُندَنَا لَهُمُ ٱلْغَـٰلِبُونَ", "Translation": "and that Our forces will certainly prevail - Surah As-Saffat 37:173"},
  {"Word (Arabic)": "إصبع", "Transliteration": "Isba'", "Meaning": "Finger", "Example": "وَفَطَرْنَا ٱلۡإِصۡبَعَ", "Translation": "And we formed the fingers"},
  {"Word (Arabic)": "أذن ", "Transliteration" : "Udhun", "Meaning": "Ear", "Example": "لَهُمۡ ءَاذَانٌۭ لَّا يَسۡمَعُونَ بِهَا", "Translation": "They have ears with which they do not hear - Surah Al-A'raf, 7:179"},
  {"Word (Arabic)": "عين ", "Transliteration" : "Ayn", "Meaning": "Eye", "Example": "وَاصْنَعِ ٱلۡفُلۡكَ بِأَعۡيُنِنَا وَوَحۡيِنَا", "Translation": "And construct the ship under Our eyes and Our inspiration - Surah Hud, 11:37"},
