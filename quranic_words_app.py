@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 quranic_words = [
- {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱللَّهُ غَفُورٌ رَّحِيمٌ (And Allah is Forgiving and Merciful.)"},
+ {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱللَّهُ غَفُورٌ رَّحِيمٌ (And Allah is Forgiving and Merciful)"},
  {"Word (Arabic)": "في" , "Transliteration": "Fi", "Meaning": "In, Inside", "Example": "فِي ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (In the heavens and the earth)"},
  {"Word (Arabic)": "من" , "Transliteration": "Min", "Meaning": "From, Of", "Example": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ (From among the jinn and mankind)"},
  {"Word (Arabic)": "على ", "Transliteration" : "'Ala", "Meaning": "On, Upon", "Example": "وَعَلَىٰ ٱللَّهِ فَلۡيَتَوَكَّلِ ٱلۡمُؤۡمِنُونَ (And upon Allah let the believers rely)"},
@@ -11,12 +11,12 @@ quranic_words = [
  {"Word (Arabic)": "رب" , "Transliteration": "Rabb", "Meaning": "Lord", "Example": "رَّبُّ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (The Lord of the heavens and the earth)"},
  {"Word (Arabic)": "سَلاَم", "Transliteration": "Salam", "Meaning": "Peace", "Example": "فَسَلَّمُوٓا۟ عَلَيْهِمْ بِسَلاَمٍۢ (Greet them with peace)"},
  {"Word (Arabic)": "توكل", "Transliteration": "Tawakkul", "Meaning": "Trust, Reliance", "Example": "وَعَلَىٰ رَبِّهِمۡ يَتَوَكَّلُونَ (And upon their Lord they rely)"},
- {"Word (Arabic)": "غفر ", "Transliteration" : "Ghufran", "Meaning": "Forgiveness", "Example": "رَبَّنَا ٱغْفِرْ لَنَا ذُنُوبَنَا (Our Lord, forgive us our sins.)"},
+ {"Word (Arabic)": "غفر ", "Transliteration" : "Ghufran", "Meaning": "Forgiveness", "Example": "رَبَّنَا ٱغْفِرْ لَنَا ذُنُوبَنَا (Our Lord, forgive us our sins)"},
  {"Word (Arabic)": "قمر ", "Transliteration" : "Qamar", "Meaning": "Moon", "Example": "وَٱلْقَمَرِ إِذَا تَلَاهَا (And the moon when it follows it)"},
  {"Word (Arabic)": "نجوم", "Transliteration": "Nujum", "Meaning": "Stars", "Example": "وَٱلنَّجْمِ وَٱلشَّجَرِ (By the stars and the trees)"},
  {"Word (Arabic)": "سماء", "Transliteration": "Sama'", "Meaning": "Sky", "Example": "إِنَّ فِى سَمَٰوَٰتِهِۦ (Indeed in the heavens)"},
  {"Word (Arabic)": "أرض ", "Transliteration" : "Ard", "Meaning": "Earth", "Example": "وَفِى ٱلۡأَرۡضِ (And in the earth)"},
- {"Word (Arabic)": "جند ", "Transliteration" : "Jund", "Meaning": "Army", "Example": "وَكَانَ جُندُهُمَا هُنَالِكَ مَغۡلُوبِ (And their army was defeated there.)"},
+ {"Word (Arabic)": "جند ", "Transliteration" : "Jund", "Meaning": "Army", "Example": "وَكَانَ جُندُهُمَا هُنَالِكَ مَغۡلُوبِ (And their army was defeated there)"},
  {"Word (Arabic)": "إصبع", "Transliteration": "Isba'", "Meaning": "Finger", "Example": "وَفَطَرْنَا ٱلۡإِصۡبَعَ (And we formed the fingers)"},
  {"Word (Arabic)": "كف" , "Transliteration": "Kaff", "Meaning": "Palm of the hand", "Example": "يَدُ اللَّهِ فَوْقَ أَيْدِيهِمْ (The hand of Allah is over their hands - Surah Al-Fath, 48:10)"},
  {"Word (Arabic)": "أذن ", "Transliteration" : "Udhun", "Meaning": "Ear", "Example": "لَهُمۡ ءَاذَانٌۭ لَّا يَسۡمَعُونَ بِهَا (They have ears with which they do not hear - Surah Al-A'raf, 7:179)"},
