@@ -255,7 +255,7 @@ for idx, (index, row) in enumerate(df_filtered.iterrows(), 1):
     st.write(f"**Transliteration**: {row['Transliteration']}")
     st.write(f"**Meaning**: {row['Meaning']}")
 # arabic example bigger
-    st.markdown(f"**Example:** <h4 style='font-size: 24px; color: #000; text-align: center;'>{row['Example']}</h4>", unsafe_allow_html=True)     
+    st.markdown(f"**Example:** <h4 style='font-size: 24px; color: #000; text-align: left;'>{row['Example']}</h4>", unsafe_allow_html=True)     
  #  st.write(f"**Example**: {row['Example']}")
     st.write(f"**Translation**: {row['Translation']}")
     st.write("---")
