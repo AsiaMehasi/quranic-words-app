@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 quranic_words = [
- {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱلۡعَصۡرِ (By Time)"},
+ {"Word (Arabic)": "و", "Transliteration": "Wa", "Meaning": "And", "Example": "وَٱللَّهُ غَفُورٌ رَّحِيمٌ (And Allah is Forgiving and Merciful.)"},
  {"Word (Arabic)": "في" , "Transliteration": "Fi", "Meaning": "In, Inside", "Example": "فِي ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ (In the heavens and the earth)"},
  {"Word (Arabic)": "من" , "Transliteration": "Min", "Meaning": "From, Of", "Example": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ (From among the jinn and mankind)"},
  {"Word (Arabic)": "على ", "Transliteration" : "'Ala", "Meaning": "On, Upon", "Example": "وَعَلَىٰ ٱللَّهِ فَلۡيَتَوَكَّلِ ٱلۡمُؤۡمِنُونَ (And upon Allah let the believers rely)"},
