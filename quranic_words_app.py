@@ -23,7 +23,7 @@ quranic_words = [
  {"Word (Arabic)": "عين ", "Transliteration" : "Ayn", "Meaning": "Eye", "Example": "وَاصْنَعِ ٱلۡفُلۡكَ بِأَعۡيُنِنَا وَوَحۡيِنَا (And construct the ship under Our eyes and Our inspiration - Surah Hud, 11:37)"},
  {"Word (Arabic)": "لسان", "Transliteration": "Lisan", "Meaning": "Tongue", "Example": "وَمَآ أَرۡسَلۡنَا مِن رَّسُولٍ إِلَّا بِلِسَانِ قَوۡمِهِۦ (And We did not send any messenger except [speaking] in the tongue of his people - Surah Ibrahim, 14:4)"},
  {"Word (Arabic)": "يد" , "Transliteration": "Yad", "Meaning": "Hand", "Example": "وَجَعَلْنَا يَدَٰهُ قَبْضًا (And We made his hand close)"},
- {"Word (Arabic)": "نساء", "Transliteration": "Nisa", "Meaning": "Women", "Example": "وَٱلنِّسَآءَ (And the women)"},
+ {"Word (Arabic)": "نساء", "Transliteration": "Nisa", "Meaning": "Women", "Example": "وَعَاشِرُوهُنَّ بِٱلۡمَعۡرُوفِۚ (And live with them in kindness - Surah An-Nisa, 4:19)"},
  {"Word (Arabic)": "والدة", "Transliteration": "Walidah", "Meaning": "Mother", "Example": "وَوَصَّيْنَا ٱلۡإِنسَـٰنَ بِوَٰلِدَيۡهِ (And We have enjoined upon man [care] for his parents - Surah Luqman, 31:14)"},
  {"Word (Arabic)": "منزل", "Transliteration": "Manzil", "Meaning": "Abode, Residence", "Example": "وَأَنزَلَ ٱلۡقُرۡءَانَ (And He sent down the Quran - Surah Al-Isra, 17:9)"},
  {"Word (Arabic)": "باب ", "Transliteration" : "Bab", "Meaning": "Door", "Example": "إِنَّ ٱلۡبَابَ (Indeed, the door)"},
