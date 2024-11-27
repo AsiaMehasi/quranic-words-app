@@ -21,7 +21,7 @@ quranic_words = [
  {"Word (Arabic)": "كف" , "Transliteration": "Kaff", "Meaning": "Palm of the hand", "Example": "يَدُ اللَّهِ فَوْقَ أَيْدِيهِمْ (The hand of Allah is over their hands - Surah Al-Fath, 48:10)"},
  {"Word (Arabic)": "أذن ", "Transliteration" : "Udhun", "Meaning": "Ear", "Example": "لَهُمۡ ءَاذَانٌۭ لَّا يَسۡمَعُونَ بِهَا (They have ears with which they do not hear - Surah Al-A'raf, 7:179)"},
  {"Word (Arabic)": "عين ", "Transliteration" : "Ayn", "Meaning": "Eye", "Example": "وَاصْنَعِ ٱلۡفُلۡكَ بِأَعۡيُنِنَا وَوَحۡيِنَا (And construct the ship under Our eyes and Our inspiration - Surah Hud, 11:37)"},
- {"Word (Arabic)": "لسان", "Transliteration": "Lisan", "Meaning": "Tongue", "Example": "وَفَصَّلْنَا لَهُۥ الْمَسَٰءَ (And We have detailed for him the speech)"},
+ {"Word (Arabic)": "لسان", "Transliteration": "Lisan", "Meaning": "Tongue", "Example": "وَمَآ أَرۡسَلۡنَا مِن رَّسُولٍ إِلَّا بِلِسَانِ قَوۡمِهِۦ (And We did not send any messenger except [speaking] in the tongue of his people - Surah Ibrahim, 14:4)"},
  {"Word (Arabic)": "يد" , "Transliteration": "Yad", "Meaning": "Hand", "Example": "وَجَعَلْنَا يَدَٰهُ قَبْضًا (And We made his hand close)"},
  {"Word (Arabic)": "نساء", "Transliteration": "Nisa", "Meaning": "Women", "Example": "وَٱلنِّسَآءَ (And the women)"},
  {"Word (Arabic)": "والدة", "Transliteration": "Walidah", "Meaning": "Mother", "Example": "وَوَصَّيْنَا ٱلۡإِنسَـٰنَ بِوَٰلِدَيۡهِ (And We have enjoined upon man [care] for his parents - Surah Luqman, 31:14)"},
